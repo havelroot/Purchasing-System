@@ -1,0 +1,32 @@
+name: Atividade diaria
+
+on:
+  schedule:
+    - cron: '0 20 * * *'
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: atividade-diaria
+  cancel-in-progress: false
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Registrar atividade
+        env:
+          GIT_NAME: ${{ secrets.GIT_NAME }}
+          GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
+        run: |
+          TZ=America/Sao_Paulo date '+%Y-%m-%d %H:%M' >> .github/atividade.txt
+          git config user.name "$GIT_NAME"
+          git config user.email "$GIT_EMAIL"
+          git add .github/atividade.txt
+          git commit -m "Atividade $(TZ=America/Sao_Paulo date '+%Y-%m-%d %Hh')"
+          git pull --rebase
+          git push
