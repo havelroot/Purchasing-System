@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/images/logo.png" width="220" alt="Velo.">
+  <img src="docs/images/logo-velo-500.png" width="220" alt="Velo.">
 </p>
 
 <h1 align="center">Velo.<br><sub><sup><sup><sub>Feito por Erik L. Pimenta</sub></sup></sup></sub></h1>
