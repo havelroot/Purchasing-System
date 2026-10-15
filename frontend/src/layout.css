@@ -303,15 +303,6 @@ span.chip:hover {
   align-items: baseline;
 }
 
-.wordmark-dot {
-  display: inline-block;
-  width: 0.22em;
-  height: 0.22em;
-  border-radius: 0.045em;
-  background: currentColor;
-  margin-left: 0.06em;
-}
-
 .logo {
   display: inline-flex;
   align-items: center;

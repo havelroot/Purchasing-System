@@ -64,7 +64,7 @@ public class StripeGateway implements PaymentGateway {
         form.put("line_items[0][quantity]", "1");
         form.put("line_items[0][price_data][currency]", "brl");
         form.put("line_items[0][price_data][unit_amount]", String.valueOf(Money.cents(order.getTotal())));
-        form.put("line_items[0][price_data][product_data][name]", "Pedido " + order.getNumber() + " · Velo.");
+        form.put("line_items[0][price_data][product_data][name]", "Pedido " + order.getNumber() + " · Velo");
         try {
             JsonNode body = post("checkout/sessions", form, "velo-" + order.getNumber() + "-" + System.currentTimeMillis() / 60000);
             return new GatewayResult(PaymentStatus.PENDING, body.path("id").asString(), body.path("url").asString(), null, null,

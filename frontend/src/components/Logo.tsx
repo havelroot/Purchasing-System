@@ -17,8 +17,8 @@ export function Mark({ size = 28, color = "currentColor", title }: { size?: numb
 
 export function Wordmark({ size = 22, color = "currentColor" }: { size?: number; color?: string }) {
   return (
-    <span className="wordmark" style={{ fontSize: size, color }} aria-label="Velo.">
-      Velo<span className="wordmark-dot" aria-hidden />
+    <span className="wordmark" style={{ fontSize: size, color }} aria-label="Velo">
+      Velo
     </span>
   );
 }

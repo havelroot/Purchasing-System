@@ -238,7 +238,7 @@ export function AdminUsersPage() {
               )}
               <label className="check span-4">
                 <input type="checkbox" checked={draft.active} disabled={self} onChange={(e) => setDraft({ ...draft, active: e.target.checked })} />
-                Pode entrar na Velo.
+                Pode entrar na Velo
               </label>
             </div>
             {draft.id && !self && (

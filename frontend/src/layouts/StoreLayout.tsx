@@ -15,7 +15,7 @@ export function StoreLayout() {
     <div className="store-shell">
       <header className="store-header">
         <div className="wrap store-header-inner">
-          <Link to="/" className="brand" aria-label="Velo. — início">
+          <Link to="/" className="brand" aria-label="Velo — início">
             <Logo size={22} />
           </Link>
           <nav className="store-nav" aria-label="Principal">

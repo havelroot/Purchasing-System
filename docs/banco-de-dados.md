@@ -1,6 +1,6 @@
-# Banco de dados da Velo.
+# Banco de dados da Velo
 
-A Velo. funciona com o banco que você preferir. As tabelas são criadas sozinhas na primeira vez que a aplicação sobe, com o [Flyway](https://flywaydb.org), seguindo o mesmo modelo em todos os bancos.
+A Velo funciona com o banco que você preferir. As tabelas são criadas sozinhas na primeira vez que a aplicação sobe, com o [Flyway](https://flywaydb.org), seguindo o mesmo modelo em todos os bancos.
 
 | Banco | Versão mínima | Perfil | Script do esquema |
 |---|---|---|---|
@@ -84,7 +84,7 @@ GRANT CREATE SESSION, CREATE TABLE, CREATE SEQUENCE, CREATE VIEW TO velo;
 ```
 </details>
 
-**3. Aponte a Velo. para o banco** escolhendo o perfil e, se precisar, o endereço e a senha:
+**3. Aponte a Velo para o banco** escolhendo o perfil e, se precisar, o endereço e a senha:
 
 ```bash
 # Linux / macOS
@@ -112,7 +112,7 @@ Depois rode a aplicação como no [README](../README.md#como-rodar). Os perfis j
 | `sqlserver` | `jdbc:sqlserver://localhost:1433;databaseName=velo;encrypt=true;trustServerCertificate=true` | `velo` / `Velo@Senha2026` |
 | `oracle` | `jdbc:oracle:thin:@//localhost:1521/FREEPDB1` | `velo` / `velo` |
 
-Na primeira conexão o Flyway cria as 13 tabelas e registra a versão em `flyway_schema_history`. Com o banco vazio, a Velo. também cadastra os dados de demonstração (usuários, produtos, cupons e pedidos de exemplo). Para não criar esses dados, defina `VELO_SEED=false`.
+Na primeira conexão o Flyway cria as 13 tabelas e registra a versão em `flyway_schema_history`. Com o banco vazio, a Velo também cadastra os dados de demonstração (usuários, produtos, cupons e pedidos de exemplo). Para não criar esses dados, defina `VELO_SEED=false`.
 
 ### Problemas comuns
 
@@ -382,7 +382,7 @@ O estoque sai no momento da compra (movimento `SALE`) e volta quando o pedido é
 
 ### `vl_user`
 
-Pessoas que acessam a Velo.: clientes, equipe e administradores.
+Pessoas que acessam a Velo: clientes, equipe e administradores.
 
 | Coluna | Tipo | Obrigatório | Chave | Descrição |
 |---|---|---|---|---|

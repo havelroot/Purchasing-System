@@ -9,6 +9,6 @@ public class HealthController {
 
     @GetMapping("/api/health")
     public Map<String, String> health() {
-        return Map.of("status", "ok", "app", "Velo.");
+        return Map.of("status", "ok", "app", "Velo");
     }
 }

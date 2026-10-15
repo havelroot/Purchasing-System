@@ -13,7 +13,7 @@
     <groupId>dev.velo</groupId>
     <artifactId>velo</artifactId>
     <version>1.0.0</version>
-    <name>Velo.</name>
+    <name>Velo</name>
     <description>E-commerce completo: catálogo, carrinho, pedidos, pagamentos e gestão de usuários.</description>
     <licenses>
         <license>

@@ -322,7 +322,7 @@ public class OrderService {
         Map<Long, String> names = new HashMap<>();
         List<OrderDtos.History> timeline = new ArrayList<>();
         for (OrderStatusHistory h : history.findByOrderIdOrderByIdAsc(o.getId())) {
-            String by = h.getUserId() == null ? "Velo." : names.computeIfAbsent(h.getUserId(),
+            String by = h.getUserId() == null ? "Velo" : names.computeIfAbsent(h.getUserId(),
                     id -> users.findById(id).map(User::getFullName).orElse("—"));
             timeline.add(new OrderDtos.History(h.getFromStatus(), h.getToStatus(), OrderLifecycle.label(h.getToStatus()), h.getNote(),
                     by, Times.instant(h.getCreatedAt())));

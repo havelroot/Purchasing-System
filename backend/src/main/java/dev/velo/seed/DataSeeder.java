@@ -176,7 +176,7 @@ public class DataSeeder implements ApplicationRunner {
             sampleOrder(buyer, catalog, placed, status, random, now);
             created++;
         }
-        log.info("Velo. demo data ready: {} users, {} products, {} orders. Admin: {} / {}", users.count(), catalog.size(),
+        log.info("Velo demo data ready: {} users, {} products, {} orders. Admin: {} / {}", users.count(), catalog.size(),
                 created, admin.getEmail(), DEMO_PASSWORD);
     }
 

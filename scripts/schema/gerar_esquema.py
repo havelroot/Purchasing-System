@@ -22,7 +22,7 @@ def audit():
 TABLES = [
     {
         "name": "vl_user",
-        "desc": "Pessoas que acessam a Velo.: clientes, equipe e administradores.",
+        "desc": "Pessoas que acessam a Velo: clientes, equipe e administradores.",
         "cols": [
             col("id", "id"),
             col("full_name", "varchar", 120, False, "Nome completo"),

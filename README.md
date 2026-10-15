@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="docs/images/logo-velo-500.png" width="220" alt="Velo.">
+  <img src="docs/images/logo-velo-500.png" width="220" alt="Velo">
 </p>
 
-<h1 align="center">Velo.<br><sub><sup><sup><sub>Feito por Erik L. Pimenta</sub></sup></sup></sub></h1>
+<h1 align="center">Velo<br><sub><sup><sup><sub>Feito por Erik L. Pimenta</sub></sup></sup></sub></h1>
 
 <p align="center">
   Loja virtual completa e de código aberto: catálogo, carrinho, pedidos, pagamentos e gestão de clientes e estoque em um só lugar.<br>
@@ -15,13 +15,13 @@
 
 ---
 
-> **Manual completo:** [`Manual-Velo.pdf`](Manual-Velo.pdf) explica instalação, sessão, todas as telas, painel, pedidos e pagamentos, arquitetura, API, banco de dados e solução de problemas, passo a passo.
+> **Manual completo:** [`Manual-Velopdf`](Manual-Velopdf) explica instalação, sessão, todas as telas, painel, pedidos e pagamentos, arquitetura, API, banco de dados e solução de problemas, passo a passo.
 
 <p align="center">
   <img src="docs/images/tela-vitrine.png" alt="Vitrine da loja">
 </p>
 
-## O que a Velo. faz
+## O que a Velo faz
 
 **Para quem compra**
 
@@ -60,7 +60,7 @@ Você só precisa do **Java 21**. O Maven baixa o Node, compila a interface e em
 
 Abra **http://localhost:8080**. A primeira execução demora alguns minutos para baixar as dependências; as próximas sobem em segundos.
 
-Sem configurar nada, a Velo. usa um banco H2 em arquivo (`backend/data`) já preenchido com dados de demonstração. Para usar outro banco, veja [como parear o banco de dados](docs/banco-de-dados.md#como-parear-o-banco).
+Sem configurar nada, a Velo usa um banco H2 em arquivo (`backend/data`) já preenchido com dados de demonstração. Para usar outro banco, veja [como parear o banco de dados](docs/banco-de-dados.md#como-parear-o-banco).
 
 ### Gerar o arquivo .jar
 
@@ -140,7 +140,7 @@ PIX e boleto geram um código de verdade no formato, e o pedido fica aguardando.
 
 1. Crie uma conta em [stripe.com](https://stripe.com) e copie a chave secreta de teste (`sk_test_...`).
 2. Em **Developers › Webhooks**, cadastre `https://SEU-ENDERECO/api/payments/webhook/stripe` com os eventos `checkout.session.completed`, `checkout.session.async_payment_succeeded`, `checkout.session.async_payment_failed` e `checkout.session.expired`. Copie o segredo de assinatura (`whsec_...`).
-3. Suba a Velo. com:
+3. Suba a Velo com:
 
 ```bash
 VELO_PAYMENT_PROVIDER=STRIPE
@@ -168,7 +168,7 @@ Nunca coloque chaves reais no código. Use variáveis de ambiente; o arquivo [`.
 
 ## Banco de dados
 
-A Velo. roda em **H2, PostgreSQL, MySQL, MariaDB, SQL Server ou Oracle**. O guia [docs/banco-de-dados.md](docs/banco-de-dados.md) traz:
+A Velo roda em **H2, PostgreSQL, MySQL, MariaDB, SQL Server ou Oracle**. O guia [docs/banco-de-dados.md](docs/banco-de-dados.md) traz:
 
 - como subir cada banco com Docker em um comando (`docker compose --profile postgresql up -d`);
 - o SQL para criar banco e usuário sem Docker;
@@ -176,14 +176,14 @@ A Velo. roda em **H2, PostgreSQL, MySQL, MariaDB, SQL Server ou Oracle**. O guia
 - o diagrama completo das 13 tabelas, com campos, tipos, chaves primárias, estrangeiras, únicas e índices;
 - o fluxo de situações do pedido e as regras de cada tabela.
 
-O mesmo conteúdo, com o diagrama de relacionamentos em alta resolução, está em PDF: [Banco-de-Dados-Velo.pdf](docs/Banco-de-Dados-Velo.pdf).
+O mesmo conteúdo, com o diagrama de relacionamentos em alta resolução, está em PDF: [Banco-de-Dados-Velopdf](docs/Banco-de-Dados-Velopdf).
 
 ## Documentação
 
 | Documento | Conteúdo |
 |---|---|
-| [Manual-Velo.pdf](Manual-Velo.pdf) | Manual técnico completo: visão geral, como rodar, sessão, guia de todas as telas, painel, pedidos e pagamentos, arquitetura, API, configuração, testes e solução de problemas (cópia em [docs/](docs/Manual-Velo.pdf)) |
-| [Banco-de-Dados-Velo.pdf](Banco-de-Dados-Velo.pdf) | Diagrama de relacionamentos, todas as tabelas com campos, tipos e chaves, convenções e como parear cada banco (cópia em [docs/](docs/Banco-de-Dados-Velo.pdf)) |
+| [Manual-Velopdf](Manual-Velopdf) | Manual técnico completo: visão geral, como rodar, sessão, guia de todas as telas, painel, pedidos e pagamentos, arquitetura, API, configuração, testes e solução de problemas (cópia em [docs/](docs/Manual-Velopdf)) |
+| [Banco-de-Dados-Velopdf](Banco-de-Dados-Velopdf) | Diagrama de relacionamentos, todas as tabelas com campos, tipos e chaves, convenções e como parear cada banco (cópia em [docs/](docs/Banco-de-Dados-Velopdf)) |
 | [docs/banco-de-dados.md](docs/banco-de-dados.md) | Guia do banco em texto, gerado pelo script do esquema |
 
 ## Arquitetura
