@@ -11,6 +11,7 @@ import java.time.Clock;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.time.temporal.ChronoUnit;
 import java.util.Base64;
 import java.util.HexFormat;
 import java.util.Optional;
@@ -153,7 +154,7 @@ public class SessionService {
     }
 
     private LocalDateTime now() {
-        return LocalDateTime.now(clock);
+        return LocalDateTime.now(clock).truncatedTo(ChronoUnit.MICROS);
     }
 
     static String hash(String token) {
