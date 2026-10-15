@@ -263,7 +263,7 @@ Os testes cobrem os limites de sessão com relógio controlado, o fluxo de compr
 
 ## Commits automáticos
 
-O workflow [`.github/workflows/diario.yml`](.github/workflows/diario.yml) acrescenta uma linha em `.github/atividade.txt` e faz um commit todos os dias às **17h17** e às **23h17** (horário de Brasília). Para ativar no seu fork:
+O workflow [`.github/workflows/diario.yml`](.github/workflows/diario.yml) acrescenta uma linha em `.github/atividade.txt` e faz um commit todos os dias às **17h17** e às **22h17** (horário de Brasília). Para ativar no seu fork:
 
 1. Em **Settings › Secrets and variables › Actions**, crie os segredos `GIT_NAME` (seu nome no GitHub) e `GIT_EMAIL` (o e-mail da sua conta, ou o endereço `...@users.noreply.github.com` mostrado em **Settings › Emails**).
 2. Em **Settings › Actions › General › Workflow permissions**, marque **Read and write permissions** e salve.
