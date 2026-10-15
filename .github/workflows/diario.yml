@@ -2,8 +2,8 @@ name: Atividade diaria
 
 on:
   schedule:
-    - cron: '0 20 * * *'
-    - cron: '0 2 * * *'
+    - cron: '17 20 * * *'
+    - cron: '17 2 * * *'
   workflow_dispatch:
 
 permissions:
