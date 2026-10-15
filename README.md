@@ -15,6 +15,12 @@
 
 ---
 
+> **Manual completo:** [`Manual-Velo.pdf`](Manual-Velo.pdf) explica instalação, sessão, todas as telas, painel, pedidos e pagamentos, arquitetura, API, banco de dados e solução de problemas, passo a passo.
+
+<p align="center">
+  <img src="docs/images/tela-vitrine.png" alt="Vitrine da loja">
+</p>
+
 ## O que a Velo. faz
 
 **Para quem compra**
@@ -95,6 +101,12 @@ Todas usam a senha **`Velo@2026`**. Elas existem só para testes e estão no có
 
 Os dados de demonstração trazem 24 produtos em 6 categorias, 9 clientes fictícios, 64 pedidos de exemplo e os cupons `BEMVINDO10` (10%) e `VELO20` (20% acima de R$ 150). Para publicar a loja de verdade, troque as senhas dessas contas ou suba com `VELO_SEED=false` em um banco vazio.
 
+| Tela | |
+|---|---|
+| <img src="docs/images/tela-login.png" alt="Entrada com as contas de demonstração"> | <img src="docs/images/tela-produto.png" alt="Página de produto"> |
+| <img src="docs/images/tela-checkout.png" alt="Entrega e pagamento"> | <img src="docs/images/tela-pedido.png" alt="Acompanhamento do pedido"> |
+| <img src="docs/images/tela-painel.png" alt="Painel administrativo"> | <img src="docs/images/tela-admin-pedidos.png" alt="Gestão de pedidos"> |
+
 ## Sessão e segurança
 
 | Regra | Como funciona |
@@ -170,7 +182,7 @@ O mesmo conteúdo, com o diagrama de relacionamentos em alta resolução, está 
 
 | Documento | Conteúdo |
 |---|---|
-| [Manual-Velo.pdf](Manual-Velo.pdf) | Manual técnico completo: visão geral, como rodar, sessão, guia de todas as telas, painel, pedidos e pagamentos, arquitetura, API, configuração, testes e solução de problemas |
+| [Manual-Velo.pdf](Manual-Velo.pdf) | Manual técnico completo: visão geral, como rodar, sessão, guia de todas as telas, painel, pedidos e pagamentos, arquitetura, API, configuração, testes e solução de problemas (cópia em [docs/](docs/Manual-Velo.pdf)) |
 | [Banco-de-Dados-Velo.pdf](Banco-de-Dados-Velo.pdf) | Diagrama de relacionamentos, todas as tabelas com campos, tipos e chaves, convenções e como parear cada banco (cópia em [docs/](docs/Banco-de-Dados-Velo.pdf)) |
 | [docs/banco-de-dados.md](docs/banco-de-dados.md) | Guia do banco em texto, gerado pelo script do esquema |
 
