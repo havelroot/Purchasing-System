@@ -261,16 +261,6 @@ cd backend
 
 Os testes cobrem os limites de sessão com relógio controlado, o fluxo de compra completo (cartão aprovado e recusado, PIX, cupom, estoque, rastreio e cancelamento), as permissões de cada perfil pela API e as regras de cartão, senha e assinatura da Stripe.
 
-## Commits automáticos
-
-O workflow [`.github/workflows/diario.yml`](.github/workflows/diario.yml) acrescenta uma linha em `.github/atividade.txt` e faz um commit todos os dias às **17h17** e às **22h17** (horário de Brasília). Para ativar no seu fork:
-
-1. Em **Settings › Secrets and variables › Actions**, crie os segredos `GIT_NAME` (seu nome no GitHub) e `GIT_EMAIL` (o e-mail da sua conta, ou o endereço `...@users.noreply.github.com` mostrado em **Settings › Emails**).
-2. Em **Settings › Actions › General › Workflow permissions**, marque **Read and write permissions** e salve.
-3. Em **Actions › Atividade diaria**, clique em **Run workflow** para testar na hora.
-
-O GitHub pode atrasar execuções agendadas em alguns minutos nos horários de pico.
-
 ## Licença
 
 [MIT](LICENSE). Use, copie, altere e distribua à vontade.
