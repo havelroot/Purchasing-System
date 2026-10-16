@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { useMemo, useRef, useState } from "react";
 import { money, shortDate } from "../lib/format";
 
-export function SalesChart({ data, height = 240 }: { data: { date: string; revenue: number; orders: number }[]; height?: number }) {
+export function SalesChart({ data, height = 200 }: { data: { date: string; revenue: number; orders: number }[]; height?: number }) {
   const [hover, setHover] = useState<number | null>(null);
   const ref = useRef<SVGSVGElement>(null);
   const w = 720;
@@ -40,7 +40,7 @@ export function SalesChart({ data, height = 240 }: { data: { date: string; reven
         ) : (
           <>
             <strong className="num">{money(total)}</strong>
-            <span className="muted small">no período · passe o mouse nas barras</span>
+            <span className="muted small">no período</span>
           </>
         )}
       </div>
@@ -65,11 +65,11 @@ export function SalesChart({ data, height = 240 }: { data: { date: string; reven
               key={d.date}
               x={x}
               width={bar}
-              rx={Math.min(4, bar / 2)}
+              rx={Math.min(2, bar / 2)}
               className={`bar ${hover === i ? "on" : ""} ${hover !== null && hover !== i ? "dim" : ""}`}
               initial={{ y: h - pad.b, height: 0 }}
               animate={{ y: h - pad.b - bh, height: bh }}
-              transition={{ duration: 0.6, delay: i * 0.012, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.4, ease: [0.2, 0, 0, 1] }}
             />
           );
         })}
@@ -92,26 +92,26 @@ export function SalesChart({ data, height = 240 }: { data: { date: string; reven
 export function StatusBar({ items }: { items: { status: string; label: string; count: number }[] }) {
   const total = items.reduce((s, i) => s + i.count, 0) || 1;
   const tone: Record<string, string> = {
-    PENDING_PAYMENT: "var(--stone)",
-    PAID: "var(--ink-2)",
-    PROCESSING: "var(--mauve)",
-    SHIPPED: "#5d5353",
-    DELIVERED: "var(--ink)",
-    CANCELED: "var(--sand)",
-    REFUNDED: "#cfc4c0"
+    PENDING_PAYMENT: "#c99a4a",
+    PAID: "#6fa595",
+    PROCESSING: "#3f8270",
+    SHIPPED: "#2c6d5b",
+    DELIVERED: "var(--accent)",
+    CANCELED: "var(--stone)",
+    REFUNDED: "var(--mauve)"
   };
   return (
     <div className="status-bar">
       <div className="status-track" role="img" aria-label="Pedidos por situação">
         {items
           .filter((i) => i.count > 0)
-          .map((i, n) => (
+          .map((i) => (
             <motion.span
               key={i.status}
               style={{ background: tone[i.status] }}
               initial={{ width: 0 }}
               animate={{ width: `${(i.count / total) * 100}%` }}
-              transition={{ duration: 0.7, delay: n * 0.05, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.4, ease: [0.2, 0, 0, 1] }}
               title={`${i.label}: ${i.count}`}
             />
           ))}
@@ -133,7 +133,7 @@ export function RankBars({ items }: { items: { name: string; quantity: number; r
   const max = Math.max(1, ...items.map((i) => i.revenue));
   return (
     <ol className="rank">
-      {items.map((i, n) => (
+      {items.map((i) => (
         <li key={i.name}>
           <div className="rank-text">
             <span>{i.name}</span>
@@ -145,7 +145,7 @@ export function RankBars({ items }: { items: { name: string; quantity: number; r
             <motion.span
               initial={{ width: 0 }}
               animate={{ width: `${(i.revenue / max) * 100}%` }}
-              transition={{ duration: 0.6, delay: n * 0.05, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.4, ease: [0.2, 0, 0, 1] }}
             />
           </div>
         </li>

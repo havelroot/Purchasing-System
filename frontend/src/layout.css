@@ -9,11 +9,11 @@ textarea.input {
 select.input,
 .select {
   appearance: none;
-  background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%);
-  background-position: calc(100% - 18px) 19px, calc(100% - 13px) 19px;
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 17px) 16px, calc(100% - 12px) 16px;
   background-size: 5px 5px, 5px 5px;
   background-repeat: no-repeat;
-  padding-right: 36px;
+  padding-right: 34px;
   cursor: pointer;
 }
 
@@ -29,9 +29,8 @@ select.input,
 }
 
 .select.compact {
-  height: 38px;
-  border-radius: 999px;
-  background-position: calc(100% - 18px) 16px, calc(100% - 13px) 16px;
+  height: 34px;
+  background-position: calc(100% - 17px) 14px, calc(100% - 12px) 14px;
 }
 
 .stack.sm {
@@ -59,7 +58,7 @@ select.input,
 }
 
 .strong {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .text-link {
@@ -68,15 +67,16 @@ select.input,
   background: none;
   padding: 0;
   cursor: pointer;
-  font-weight: 650;
+  font-weight: 600;
+  color: var(--accent);
   text-decoration: underline;
-  text-decoration-color: var(--stone);
+  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
   text-underline-offset: 3px;
   transition: text-decoration-color 0.2s var(--ease);
 }
 
 .text-link:hover {
-  text-decoration-color: var(--ink);
+  text-decoration-color: var(--accent);
 }
 
 .wrap.narrow {
@@ -88,7 +88,7 @@ select.input,
 }
 
 .page {
-  padding: 36px 0 72px;
+  padding: 32px 0 64px;
   min-height: calc(100vh - 160px);
 }
 
@@ -119,16 +119,14 @@ select.input,
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-bottom: 18px;
-  font-size: 13.5px;
-  font-weight: 650;
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 500;
   color: var(--muted);
-  transition: color 0.2s var(--ease), gap 0.2s var(--ease);
 }
 
 .back-link:hover {
   color: var(--ink);
-  gap: 10px;
 }
 
 .section-head {
@@ -147,9 +145,10 @@ select.input,
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 14px 16px;
+  padding: 12px 14px;
   border-radius: var(--radius);
-  background: var(--sand);
+  border: 1px solid var(--line);
+  background: var(--surface-hover);
   font-size: 14px;
   line-height: 1.45;
 }
@@ -165,11 +164,13 @@ select.input,
 }
 
 .notice.error {
+  border-color: color-mix(in srgb, var(--danger) 25%, transparent);
   background: var(--danger-soft);
   color: var(--danger);
 }
 
 .notice.warn {
+  border-color: color-mix(in srgb, var(--warn) 25%, transparent);
   background: var(--warn-soft);
   color: var(--warn);
   align-items: center;
@@ -182,11 +183,10 @@ select.input,
 
 .chips {
   display: flex;
-  gap: 8px;
+  gap: 24px;
   overflow-x: auto;
   scrollbar-width: none;
-  padding: 2px;
-  margin: -2px;
+  border-bottom: 1px solid var(--line);
 }
 
 .chips::-webkit-scrollbar {
@@ -195,25 +195,25 @@ select.input,
 
 .chip-btn {
   appearance: none;
-  height: 34px;
-  padding: 0 14px;
-  border-radius: 999px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: var(--radius);
   border: 1px solid var(--line-strong);
-  background: transparent;
-  font-weight: 600;
+  background: var(--surface);
+  font-weight: 500;
   font-size: 13px;
   cursor: pointer;
   white-space: nowrap;
-  transition: background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
+  transition: background 0.15s var(--ease), color 0.15s var(--ease), border-color 0.15s var(--ease);
 }
 
 .chip-btn:hover {
-  border-color: var(--ink);
+  border-color: var(--mauve);
 }
 
 .chip-btn.on {
   background: var(--ink);
-  color: var(--paper-2);
+  color: #ffffff;
   border-color: var(--ink);
 }
 
@@ -222,10 +222,12 @@ span.chip {
   align-items: center;
   gap: 6px;
   height: 22px;
-  padding: 0 9px;
-  font-size: 11.5px;
-  font-weight: 650;
-  border-color: var(--line-strong);
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-2);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-s);
   cursor: default;
   vertical-align: middle;
   margin-left: 6px;
@@ -236,17 +238,16 @@ span.chip:hover {
 }
 
 .avatar {
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   flex: none;
   display: inline-grid;
   place-items: center;
-  border-radius: 10px;
-  background: var(--ink);
-  color: var(--paper-2);
-  font-size: 12.5px;
-  font-weight: 750;
-  letter-spacing: 0.02em;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .segmented {
@@ -254,8 +255,9 @@ span.chip:hover {
   display: inline-grid;
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
-  padding: 4px;
-  border-radius: 999px;
+  padding: 3px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
   background: var(--sand);
   isolation: isolate;
 }
@@ -264,12 +266,12 @@ span.chip:hover {
   appearance: none;
   border: 0;
   background: transparent;
-  height: 34px;
-  padding: 0 16px;
-  border-radius: 999px;
-  font-weight: 650;
-  font-size: 13.5px;
-  color: var(--ink-2);
+  height: 28px;
+  padding: 0 14px;
+  border-radius: var(--radius-s);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--muted);
   cursor: pointer;
   white-space: nowrap;
   transition: background 0.25s var(--ease), color 0.25s var(--ease), box-shadow 0.25s var(--ease);
@@ -277,6 +279,7 @@ span.chip:hover {
 
 .segmented button[aria-selected="true"] {
   color: var(--ink);
+  font-weight: 600;
 }
 
 .segmented:not(:has(.segmented-thumb)) button[aria-selected="true"] {
@@ -286,18 +289,18 @@ span.chip:hover {
 
 .segmented-thumb {
   position: absolute;
-  top: 4px;
-  bottom: 4px;
-  width: calc(50% - 4px);
-  border-radius: 999px;
+  top: 3px;
+  bottom: 3px;
+  width: calc(50% - 3px);
+  border-radius: var(--radius-s);
   background: var(--paper-2);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
   z-index: -1;
 }
 
 .wordmark {
-  font-weight: 800;
-  letter-spacing: -0.055em;
+  font-weight: 600;
+  letter-spacing: -0.03em;
   line-height: 1;
   display: inline-flex;
   align-items: baseline;
@@ -316,97 +319,47 @@ span.chip:hover {
 }
 
 .login {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
   min-height: 100vh;
-}
-
-.login-art {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 48px;
-  background: var(--ink);
-  color: var(--paper-2);
-  overflow: hidden;
-}
-
-.login-art::after {
-  content: "";
-  position: absolute;
-  right: -12vw;
-  bottom: -12vw;
-  width: 34vw;
-  height: 34vw;
-  border-radius: 18%;
-  background: var(--ink-2);
-  pointer-events: none;
-}
-
-.login-art-inner {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 56px;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.login-art-text {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.login-art-text p {
-  max-width: 360px;
-  font-size: 17px;
-  color: var(--stone);
-}
-
-.login-art-foot {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 13px;
-  color: var(--stone);
-}
-
-.login-art-foot .dot {
-  color: var(--mauve);
+  display: grid;
+  place-items: center;
+  padding: 48px 20px;
 }
 
 .login-panel {
-  display: grid;
-  place-items: center;
-  padding: 40px 24px;
+  width: min(400px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.login-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .login-box {
-  width: min(420px, 100%);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--surface);
 }
 
 .login-box .segmented {
-  align-self: flex-start;
-  width: 260px;
+  align-self: stretch;
 }
 
 .login-box h1 {
-  margin-top: 10px;
-  font-size: 32px;
+  font-size: 20px;
 }
 
-.login-mobile-brand {
-  display: none;
-  align-items: center;
-  gap: 12px;
+.login-foot {
+  font-size: 12.5px;
+  color: var(--muted);
+  text-align: center;
 }
 
 .input-affix {
@@ -419,54 +372,52 @@ span.chip:hover {
 
 .input-affix .icon-btn {
   position: absolute;
-  right: 3px;
-  top: 2px;
+  right: 1px;
+  top: 1px;
 }
 
 .demo-accounts {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding-top: 18px;
+  gap: 0;
+  padding-top: 16px;
   border-top: 1px solid var(--line);
 }
 
 .demo-accounts .label {
   color: var(--muted);
-  margin-bottom: 2px;
+  font-weight: 500;
+  margin-bottom: 8px;
 }
 
 .demo-account {
   appearance: none;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr auto;
   align-items: center;
   gap: 12px;
   text-align: left;
-  padding: 10px 14px;
+  padding: 9px 10px;
+  margin: 0 -10px;
   border-radius: var(--radius);
-  border: 1px solid var(--line);
-  background: var(--surface);
+  border: 0;
+  background: transparent;
   cursor: pointer;
-  transition: border-color 0.2s var(--ease), background 0.2s var(--ease), transform 0.18s var(--ease);
+  transition: background 0.15s var(--ease);
 }
 
 .demo-account:hover {
-  border-color: var(--ink);
+  background: var(--surface-hover);
 }
 
-.demo-account:active {
-  transform: scale(0.99);
-}
-
-.demo-account > span:nth-child(2) {
+.demo-account > span:first-child {
   display: flex;
   flex-direction: column;
   font-size: 14px;
 }
 
-.demo-account .dot {
-  color: var(--mauve);
+.demo-account-text {
+  text-align: right;
 }
 
 .store-shell {
@@ -479,16 +430,15 @@ span.chip:hover {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: color-mix(in srgb, var(--paper) 86%, transparent);
-  backdrop-filter: saturate(1.4) blur(14px);
+  background: var(--surface);
   border-bottom: 1px solid var(--line);
 }
 
 .store-header-inner {
-  height: 68px;
+  height: 60px;
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 32px;
 }
 
 .store-nav {
@@ -496,14 +446,20 @@ span.chip:hover {
   gap: 4px;
 }
 
+.store-nav {
+  align-self: stretch;
+}
+
 .store-nav a {
   position: relative;
-  padding: 8px 12px;
-  border-radius: 999px;
-  font-weight: 650;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-weight: 500;
   font-size: 14px;
   color: var(--muted);
-  transition: color 0.2s var(--ease), background 0.2s var(--ease);
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s var(--ease), border-color 0.15s var(--ease);
 }
 
 .store-nav a:hover {
@@ -512,7 +468,8 @@ span.chip:hover {
 
 .store-nav a.active {
   color: var(--ink);
-  background: var(--sand);
+  font-weight: 600;
+  border-bottom-color: var(--ink);
 }
 
 .cart-button {
@@ -520,34 +477,33 @@ span.chip:hover {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  height: 40px;
-  padding: 0 8px 0 14px;
-  border-radius: 999px;
+  height: 36px;
+  padding: 0 10px 0 12px;
+  border-radius: var(--radius);
   border: 1px solid var(--line-strong);
-  background: transparent;
+  background: var(--surface);
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
-  transition: border-color 0.2s var(--ease), background 0.2s var(--ease), transform 0.18s var(--ease);
+  transition: border-color 0.15s var(--ease), background 0.15s var(--ease);
 }
 
 .cart-button:hover {
-  border-color: var(--ink);
-}
-
-.cart-button:active {
-  transform: scale(0.96);
+  border-color: var(--mauve);
+  background: var(--surface-hover);
 }
 
 .cart-count {
-  min-width: 26px;
-  height: 26px;
-  padding: 0 8px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
   display: inline-grid;
   place-items: center;
-  border-radius: 999px;
+  border-radius: var(--radius-s);
   background: var(--ink);
-  color: var(--paper-2);
-  font-size: 12.5px;
-  font-weight: 750;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .user-menu {
@@ -559,8 +515,8 @@ span.chip:hover {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 4px 10px 4px 4px;
-  border-radius: 14px;
+  padding: 4px 8px 4px 4px;
+  border-radius: var(--radius);
   border: 1px solid transparent;
   background: transparent;
   cursor: pointer;
@@ -570,7 +526,7 @@ span.chip:hover {
 
 .user-trigger:hover,
 .user-trigger[aria-expanded="true"] {
-  background: var(--sand);
+  background: var(--surface-hover);
 }
 
 .user-trigger-text {
@@ -589,11 +545,11 @@ span.chip:hover {
   right: 0;
   top: calc(100% + 8px);
   width: 260px;
-  padding: 6px;
-  border-radius: 16px;
+  padding: 4px;
+  border-radius: var(--radius-l);
   background: var(--paper-2);
   border: 1px solid var(--line);
-  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 12px 32px -12px rgba(21, 24, 27, 0.25);
   z-index: 60;
   transform-origin: top right;
 }
@@ -621,10 +577,11 @@ span.chip:hover {
   align-items: center;
   gap: 10px;
   margin: 0 0 6px;
-  padding: 10px 12px;
-  border-radius: 10px;
-  background: var(--sand);
-  font-size: 13px;
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  background: var(--surface-hover);
+  font-size: 12.5px;
+  color: var(--muted);
 }
 
 .menu a,
@@ -634,12 +591,12 @@ span.chip:hover {
   align-items: center;
   gap: 10px;
   width: 100%;
-  padding: 10px 12px;
+  padding: 8px 10px;
   border: 0;
-  border-radius: 10px;
+  border-radius: var(--radius);
   background: transparent;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   text-align: left;
   cursor: pointer;
   transition: background 0.15s var(--ease);
@@ -652,7 +609,8 @@ span.chip:hover {
 
 .store-footer {
   border-top: 1px solid var(--line);
-  padding: 22px 0;
+  background: var(--surface);
+  padding: 20px 0;
   margin-top: auto;
 }
 
@@ -666,31 +624,22 @@ span.chip:hover {
 }
 
 .store-hero {
-  padding-top: 64px;
-  padding-bottom: 36px;
+  padding-top: 32px;
+  padding-bottom: 20px;
   display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.store-hero h1 {
-  font-size: clamp(40px, 6.2vw, 84px);
-  letter-spacing: -0.055em;
-  line-height: 0.98;
-  max-width: 11ch;
-}
-
-.store-hero p {
-  font-size: 16px;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 24px;
 }
 
 .store-toolbar {
   display: grid;
-  grid-template-columns: minmax(220px, 340px) minmax(0, 1fr) auto;
-  grid-template-areas: "search . end" "chips chips chips";
+  grid-template-columns: minmax(220px, 320px) minmax(0, 1fr) auto;
+  grid-template-areas: "chips chips chips" "search . end";
   align-items: center;
   gap: 16px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .store-toolbar > .search {
@@ -715,27 +664,26 @@ span.chip:hover {
 
 .search > svg {
   position: absolute;
-  left: 14px;
+  left: 11px;
   color: var(--muted);
   pointer-events: none;
 }
 
 .search .input {
-  padding-left: 42px;
-  border-radius: 999px;
-  height: 40px;
+  padding-left: 36px;
+  height: 36px;
 }
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
-  gap: 28px 20px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 32px 20px;
 }
 
 .product-image {
   position: relative;
   aspect-ratio: 1 / 1;
-  border-radius: var(--radius-l);
+  border-radius: var(--radius);
   background: var(--sand);
   overflow: hidden;
   display: grid;
@@ -746,12 +694,11 @@ span.chip:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.7s var(--ease);
 }
 
 .product-image-empty {
-  font-size: 40px;
-  font-weight: 800;
+  font-size: 32px;
+  font-weight: 600;
   color: var(--mauve);
 }
 
@@ -759,13 +706,13 @@ span.chip:hover {
   width: 56px;
   height: 56px;
   flex: none;
-  border-radius: 12px;
+  border-radius: var(--radius);
 }
 
 .product-image.thumb.lg {
   width: 88px;
   height: 88px;
-  border-radius: 14px;
+  border-radius: var(--radius);
 }
 
 .product-image.thumb .product-image-empty {
@@ -779,30 +726,25 @@ span.chip:hover {
 .product-tile {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .product-tile-media {
   position: relative;
   display: block;
-  border-radius: var(--radius-l);
-}
-
-.product-tile-media:hover img {
-  transform: scale(1.035);
+  border-radius: var(--radius);
 }
 
 .product-tile-tags {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 10px;
+  left: 10px;
   display: flex;
   gap: 6px;
 }
 
 .product-tile-tags .pill.line {
-  background: color-mix(in srgb, var(--paper-2) 80%, transparent);
-  border-color: transparent;
+  border-color: var(--line);
 }
 
 .product-tile-body {
@@ -820,10 +762,9 @@ span.chip:hover {
 }
 
 .product-tile-name {
-  font-weight: 700;
-  font-size: 15.5px;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
+  font-weight: 500;
+  font-size: 14.5px;
+  line-height: 1.35;
 }
 
 .product-tile-name:hover {
@@ -834,31 +775,28 @@ span.chip:hover {
 .add-button {
   appearance: none;
   flex: none;
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   display: grid;
   place-items: center;
-  border-radius: 12px;
-  border: 1px solid var(--ink);
-  background: transparent;
+  border-radius: var(--radius);
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
   cursor: pointer;
-  transition: background 0.2s var(--ease), color 0.2s var(--ease), transform 0.18s var(--ease), border-radius 0.3s var(--ease);
+  transition: background 0.15s var(--ease), color 0.15s var(--ease), border-color 0.15s var(--ease);
 }
 
 .add-button:hover {
   background: var(--ink);
-  color: var(--paper-2);
-  border-radius: 999px;
-}
-
-.add-button:active {
-  transform: scale(0.9);
+  border-color: var(--ink);
+  color: #ffffff;
 }
 
 .add-button:disabled {
-  opacity: 0.3;
+  opacity: 0.35;
   cursor: not-allowed;
-  background: transparent;
+  background: var(--surface);
+  border-color: var(--line-strong);
   color: var(--ink);
 }
 
@@ -866,7 +804,7 @@ span.chip:hover {
   display: inline-flex;
   align-items: baseline;
   gap: 8px;
-  font-weight: 700;
+  font-weight: 600;
   white-space: nowrap;
 }
 
@@ -881,13 +819,12 @@ span.chip:hover {
 }
 
 .price.lg {
-  font-size: 30px;
-  letter-spacing: -0.03em;
+  font-size: 24px;
+  letter-spacing: -0.01em;
 }
 
 .price.lg s {
-  font-size: 17px;
-  letter-spacing: 0;
+  font-size: 15px;
 }
 
 .product-layout {
@@ -898,7 +835,7 @@ span.chip:hover {
 }
 
 .product-hero .product-image {
-  border-radius: 28px;
+  border-radius: var(--radius-l);
 }
 
 .product-info {
@@ -910,12 +847,11 @@ span.chip:hover {
 }
 
 .product-info h1 {
-  font-size: clamp(32px, 4vw, 52px);
-  letter-spacing: -0.045em;
+  font-size: 28px;
 }
 
 .product-description {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.65;
   max-width: 60ch;
   color: var(--ink-2);
@@ -952,31 +888,31 @@ span.chip:hover {
 .stepper {
   display: inline-flex;
   align-items: center;
-  height: 40px;
-  border-radius: 999px;
+  height: 36px;
+  border-radius: var(--radius);
   border: 1px solid var(--line-strong);
   background: var(--surface);
 }
 
 .buy-row .stepper {
-  height: 52px;
+  height: 44px;
 }
 
 .stepper button {
   appearance: none;
-  width: 38px;
+  width: 34px;
   height: 100%;
   border: 0;
   background: transparent;
   display: grid;
   place-items: center;
   cursor: pointer;
-  border-radius: 999px;
+  border-radius: var(--radius);
   transition: background 0.15s var(--ease);
 }
 
 .stepper button:hover:not(:disabled) {
-  background: rgba(0, 0, 0, 0.06);
+  background: var(--surface-hover);
 }
 
 .stepper button:disabled {
@@ -987,7 +923,7 @@ span.chip:hover {
 .stepper span {
   min-width: 28px;
   text-align: center;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 14px;
 }
 
@@ -1031,7 +967,7 @@ span.chip:hover {
 }
 
 .free-ship-bar {
-  height: 5px;
+  height: 4px;
   border-radius: 999px;
   background: var(--sand);
   overflow: hidden;
@@ -1040,7 +976,7 @@ span.chip:hover {
 .free-ship-bar > div {
   height: 100%;
   border-radius: 999px;
-  background: var(--ink);
+  background: var(--accent);
 }
 
 .drawer-lines,
@@ -1091,7 +1027,7 @@ span.chip:hover {
 }
 
 .line-name {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 14.5px;
   line-height: 1.3;
 }
@@ -1169,7 +1105,7 @@ span.chip:hover {
 
 .coupon .input {
   text-transform: uppercase;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: 0.02em;
 }
 
@@ -1187,8 +1123,9 @@ span.chip:hover {
 }
 
 .total-line strong {
-  font-size: 26px;
-  letter-spacing: -0.03em;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .mini-lines {
@@ -1211,7 +1148,7 @@ span.chip:hover {
 .mini-lines .product-image.thumb {
   width: 44px;
   height: 44px;
-  border-radius: 10px;
+  border-radius: var(--radius);
 }
 
 .mini-lines a:hover {
@@ -1275,30 +1212,26 @@ span.chip:hover {
 }
 
 .choice.on {
-  border-color: var(--ink);
-  background: var(--paper-2);
-  box-shadow: inset 0 0 0 1px var(--ink);
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent-soft) 45%, var(--surface));
+  box-shadow: inset 0 0 0 1px var(--accent);
 }
 
 .choice input {
   appearance: none;
   flex: none;
-  width: 18px;
-  height: 18px;
-  margin: 1px 0 0;
-  border-radius: 999px;
-  border: 1.5px solid var(--ink);
+  width: 16px;
+  height: 16px;
+  margin: 2px 0 0;
+  border-radius: 50%;
+  border: 1px solid var(--mauve);
   display: grid;
   place-items: center;
   cursor: pointer;
 }
 
-.choice input:checked::after {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 2px;
-  background: var(--ink);
+.choice input:checked {
+  border: 5px solid var(--accent);
 }
 
 .choice > div {
@@ -1330,10 +1263,10 @@ span.chip:hover {
   padding: 16px;
   border-radius: var(--radius);
   border: 1px solid var(--line-strong);
-  background: transparent;
+  background: var(--surface);
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.2s var(--ease), background 0.2s var(--ease), box-shadow 0.2s var(--ease), transform 0.18s var(--ease);
+  transition: border-color 0.15s var(--ease), background 0.15s var(--ease), box-shadow 0.15s var(--ease);
 }
 
 .method svg {
@@ -1348,14 +1281,10 @@ span.chip:hover {
   border-color: var(--mauve);
 }
 
-.method:active {
-  transform: scale(0.985);
-}
-
 .method.on {
-  border-color: var(--ink);
-  background: var(--paper-2);
-  box-shadow: inset 0 0 0 1px var(--ink);
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent-soft) 45%, var(--surface));
+  box-shadow: inset 0 0 0 1px var(--accent);
 }
 
 .test-cards {
@@ -1388,11 +1317,18 @@ span.chip:hover {
 
 .order-list {
   list-style: none;
-  margin: 18px 0 0;
+  margin: 16px 0 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.order-list li + li {
+  border-top: 1px solid var(--line);
 }
 
 .order-row {
@@ -1400,11 +1336,8 @@ span.chip:hover {
   grid-template-columns: minmax(0, 1fr) auto 120px auto;
   align-items: center;
   gap: 18px;
-  padding: 18px 20px;
-  border-radius: var(--radius-l);
-  border: 1px solid var(--line);
-  background: var(--surface);
-  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease), background 0.2s var(--ease);
+  padding: 14px 18px;
+  transition: background 0.15s var(--ease);
 }
 
 .order-row > div {
@@ -1419,15 +1352,13 @@ span.chip:hover {
 
 .order-row > svg {
   color: var(--muted);
-  transition: transform 0.25s var(--ease), color 0.2s var(--ease);
 }
 
 .order-row:hover {
-  border-color: var(--ink);
+  background: var(--surface-hover);
 }
 
 .order-row:hover > svg {
-  transform: translateX(3px);
   color: var(--ink);
 }
 
@@ -1445,16 +1376,16 @@ span.chip:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   text-align: center;
   color: var(--muted);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .progress li::before {
   content: "";
   position: absolute;
-  top: 12px;
+  top: 10px;
   right: 50%;
   width: 100%;
   height: 2px;
@@ -1466,34 +1397,34 @@ span.chip:hover {
   display: none;
 }
 
+.progress-dot {
+  position: relative;
+  z-index: 1;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  border: 2px solid var(--line-strong);
+  color: #ffffff;
+}
+
 .progress li.done {
   color: var(--ink);
 }
 
 .progress li.done::before {
-  background: var(--ink);
-}
-
-.progress-dot {
-  position: relative;
-  z-index: 1;
-  width: 26px;
-  height: 26px;
-  border-radius: 8px;
-  display: grid;
-  place-items: center;
-  background: var(--surface);
-  border: 2px solid var(--line-strong);
-  color: var(--paper-2);
+  background: var(--accent);
 }
 
 .progress li.done .progress-dot {
-  background: var(--ink);
-  border-color: var(--ink);
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .progress li[aria-current="step"] .progress-dot {
-  box-shadow: 0 0 0 5px var(--sand);
+  box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
 .progress.ended li.done .progress-dot {
@@ -1541,12 +1472,12 @@ span.chip:hover {
   width: 10px;
   height: 10px;
   margin-top: 5px;
-  border-radius: 3px;
+  border-radius: 50%;
   background: var(--stone);
 }
 
 .timeline li:first-child .timeline-dot {
-  background: var(--ink);
+  background: var(--accent);
 }
 
 .timeline li > div {
@@ -1572,7 +1503,7 @@ span.chip:hover {
   padding: 16px;
   border-radius: var(--radius);
   border: 1px solid var(--line);
-  background: var(--paper-2);
+  background: var(--surface);
 }
 
 .payments li .row {
@@ -1596,7 +1527,7 @@ span.chip:hover {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 14.5px;
 }
 
@@ -1652,30 +1583,27 @@ span.chip:hover {
 
 .session-banner {
   position: fixed;
-  top: 14px;
+  top: 12px;
   left: 50%;
   translate: -50% 0;
   z-index: 95;
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 18px;
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--paper-2);
-  font-size: 13.5px;
-  font-weight: 600;
-  box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.5);
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  background: var(--warn-soft);
+  border: 1px solid color-mix(in srgb, var(--warn) 30%, transparent);
+  color: var(--warn);
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: var(--shadow);
   max-width: calc(100vw - 32px);
-}
-
-.session-banner .dot {
-  color: var(--mauve);
 }
 
 .admin-shell {
   display: grid;
-  grid-template-columns: 248px minmax(0, 1fr);
+  grid-template-columns: 232px minmax(0, 1fr);
   min-height: 100vh;
 }
 
@@ -1685,20 +1613,20 @@ span.chip:hover {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 24px 16px 16px;
-  background: var(--paper-2);
+  gap: 4px;
+  padding: 20px 12px 12px;
+  background: var(--surface);
   border-right: 1px solid var(--line);
 }
 
 .sidebar .brand {
-  padding: 4px 10px 0;
+  padding: 2px 10px 0;
 }
 
 .sidebar-tag {
-  padding: 0 10px 18px;
+  padding: 2px 10px 16px;
   font-size: 12.5px;
-  font-weight: 650;
+  font-weight: 500;
   color: var(--muted);
 }
 
@@ -1712,18 +1640,17 @@ span.chip:hover {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 12px;
-  border-radius: 12px;
+  gap: 10px;
+  padding: 7px 10px;
+  border-radius: var(--radius);
   font-size: 14px;
-  font-weight: 650;
+  font-weight: 500;
   color: var(--ink-2);
-  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+  transition: background 0.15s var(--ease), color 0.15s var(--ease);
 }
 
 .sidebar nav a svg {
   color: var(--muted);
-  transition: color 0.2s var(--ease);
 }
 
 .sidebar nav a:hover {
@@ -1731,12 +1658,13 @@ span.chip:hover {
 }
 
 .sidebar nav a.active {
-  background: var(--ink);
-  color: var(--paper-2);
+  background: var(--sand);
+  color: var(--ink);
+  font-weight: 600;
 }
 
 .sidebar nav a.active svg {
-  color: var(--paper-2);
+  color: var(--accent);
 }
 
 .sidebar hr {
@@ -1763,7 +1691,7 @@ span.chip:hover {
 }
 
 .admin-main .page {
-  padding-top: 32px;
+  padding-top: 28px;
   min-height: 100vh;
 }
 
@@ -1781,9 +1709,8 @@ span.chip:hover {
 }
 
 .toolbar > .input {
-  height: 40px;
-  border-radius: 999px;
-  background-position: calc(100% - 18px) 17px, calc(100% - 13px) 17px;
+  height: 36px;
+  background-position: calc(100% - 17px) 15px, calc(100% - 12px) 15px;
 }
 
 .table tbody.loading {
@@ -1817,14 +1744,14 @@ span.chip:hover {
 }
 
 .cell-product .product-image.thumb {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius);
 }
 
 .num.low {
   color: var(--danger);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .pill + .chip {
@@ -1832,9 +1759,9 @@ span.chip:hover {
 }
 
 .big-number {
-  font-size: 44px;
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   line-height: 1;
   margin-bottom: 6px;
 }
@@ -1846,7 +1773,8 @@ span.chip:hover {
   gap: 10px;
   padding: 16px;
   border-radius: var(--radius);
-  background: var(--sand);
+  border: 1px solid var(--line);
+  background: var(--surface-hover);
 }
 
 .subpanel .row {
@@ -1856,29 +1784,30 @@ span.chip:hover {
 .kpis {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--surface);
+  overflow: hidden;
 }
 
 .kpi {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 20px 22px;
-  border-radius: var(--radius-l);
-  border: 1px solid var(--line);
-  background: var(--surface);
+  gap: 4px;
+  padding: 18px 20px;
+  box-shadow: -1px 0 0 var(--line), 0 -1px 0 var(--line);
 }
 
 .kpi strong {
-  font-size: 30px;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 .kpi-label {
   font-size: 13px;
-  font-weight: 650;
+  font-weight: 500;
   color: var(--muted);
 }
 
@@ -1886,15 +1815,12 @@ span.chip:hover {
   color: var(--muted);
 }
 
-.kpi.strong {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--paper-2);
+.kpi-change.up {
+  color: var(--ok);
 }
 
-.kpi.strong .kpi-label,
-.kpi.strong .kpi-change {
-  color: var(--stone);
+.kpi-change.down {
+  color: var(--danger);
 }
 
 .attention {
@@ -1908,11 +1834,11 @@ span.chip:hover {
 .attention-item {
   display: flex;
   align-items: baseline;
-  gap: 12px;
-  padding: 16px 22px;
+  gap: 10px;
+  padding: 14px 20px;
   font-size: 14px;
-  background: var(--paper-2);
-  transition: background 0.2s var(--ease);
+  background: var(--surface);
+  transition: background 0.15s var(--ease);
 }
 
 .attention-item + .attention-item {
@@ -1920,12 +1846,12 @@ span.chip:hover {
 }
 
 .attention-item strong {
-  font-size: 22px;
-  letter-spacing: -0.03em;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .attention-item:hover {
-  background: var(--sand);
+  background: var(--surface-hover);
 }
 
 .chart {
@@ -1942,8 +1868,9 @@ span.chip:hover {
 }
 
 .chart-readout strong {
-  font-size: 26px;
-  letter-spacing: -0.03em;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .chart-svg {
@@ -1956,22 +1883,21 @@ span.chip:hover {
 .chart-svg .grid-line {
   stroke: var(--line);
   stroke-width: 1;
-  stroke-dasharray: 2 4;
 }
 
 .chart-svg .bar {
-  fill: var(--ink);
-  transition: fill 0.2s var(--ease), opacity 0.2s var(--ease);
+  fill: var(--accent);
+  transition: opacity 0.15s var(--ease);
 }
 
 .chart-svg .bar.dim {
-  opacity: 0.28;
+  opacity: 0.35;
 }
 
 .chart-svg .axis {
   fill: var(--muted);
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 9.5px;
+  font-weight: 500;
 }
 
 .status-bar {
@@ -1982,8 +1908,8 @@ span.chip:hover {
 
 .status-track {
   display: flex;
-  height: 14px;
-  border-radius: 999px;
+  height: 10px;
+  border-radius: var(--radius-s);
   overflow: hidden;
   background: var(--sand);
   gap: 2px;
@@ -2016,7 +1942,7 @@ span.chip:hover {
 .swatch {
   width: 10px;
   height: 10px;
-  border-radius: 3px;
+  border-radius: 2px;
   flex: none;
 }
 
@@ -2040,11 +1966,11 @@ span.chip:hover {
   justify-content: space-between;
   gap: 12px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .rank-track {
-  height: 6px;
+  height: 4px;
   border-radius: 999px;
   background: var(--sand);
   overflow: hidden;
@@ -2054,7 +1980,7 @@ span.chip:hover {
   display: block;
   height: 100%;
   border-radius: 999px;
-  background: var(--ink);
+  background: var(--accent);
 }
 
 .coupon-grid {
@@ -2070,39 +1996,17 @@ span.chip:hover {
   flex-direction: column;
   align-items: flex-start;
   gap: 6px;
-  padding: 20px 22px;
+  padding: 18px 20px;
   border-radius: var(--radius-l);
   border: 1px solid var(--line);
   background: var(--surface);
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
-}
-
-.coupon-card::before,
-.coupon-card::after {
-  content: "";
-  position: absolute;
-  top: 58%;
-  width: 18px;
-  height: 18px;
-  border-radius: 999px;
-  background: var(--paper);
-  border: 1px solid var(--line);
-}
-
-.coupon-card::before {
-  left: -10px;
-  clip-path: inset(0 0 0 50%);
-}
-
-.coupon-card::after {
-  right: -10px;
-  clip-path: inset(0 50% 0 0);
+  transition: border-color 0.15s var(--ease);
 }
 
 .coupon-card:hover {
-  border-color: var(--ink);
+  border-color: var(--mauve);
 }
 
 .coupon-card.off {
@@ -2118,21 +2022,22 @@ span.chip:hover {
 }
 
 .coupon-top strong {
-  font-size: 15px;
-  letter-spacing: 0.06em;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .coupon-value {
-  font-size: 36px;
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   line-height: 1.1;
 }
 
 .coupon-meta {
   margin-top: 8px;
   padding-top: 12px;
-  border-top: 1px dashed var(--line-strong);
+  border-top: 1px solid var(--line);
   width: 100%;
   color: var(--muted);
 }
@@ -2161,18 +2066,6 @@ span.chip:hover {
 }
 
 @media (max-width: 900px) {
-  .login {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .login-art {
-    display: none;
-  }
-
-  .login-mobile-brand {
-    display: flex;
-  }
-
   .admin-shell {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -2259,13 +2152,13 @@ span.chip:hover {
   }
 
   .store-hero {
-    padding-top: 36px;
-    padding-bottom: 24px;
+    padding-top: 24px;
+    padding-bottom: 16px;
   }
 
   .store-toolbar {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "search" "chips" "end";
+    grid-template-areas: "chips" "search" "end";
   }
 
   .store-toolbar-end {
@@ -2299,7 +2192,7 @@ span.chip:hover {
   }
 
   .kpi strong {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .attention {
@@ -2343,7 +2236,11 @@ span.chip:hover {
   }
 
   .modal {
-    padding: 22px;
+    padding: 20px;
+  }
+
+  .login-box {
+    padding: 20px;
   }
 }
 

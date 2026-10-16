@@ -15,7 +15,7 @@
 
 ---
 
-> **Manual completo:** [`Manual-Velopdf`](Manual-Velopdf) explica instalação, sessão, todas as telas, painel, pedidos e pagamentos, arquitetura, API, banco de dados e solução de problemas, passo a passo.
+> **Manual completo:** [`Manual-Velo.pdf`](Manual-Velo.pdf) explica instalação, sessão, todas as telas, painel, pedidos e pagamentos, arquitetura, API, banco de dados e solução de problemas, passo a passo.
 
 <p align="center">
   <img src="docs/images/tela-vitrine.png" alt="Vitrine da loja">
@@ -45,6 +45,25 @@
 - Pedidos não pagos em 60 minutos são cancelados sozinhos.
 - Pagamentos simulados para testar sem gastar nada, ou Stripe Checkout de verdade com webhook assinado.
 - Esquema único versionado com Flyway para seis bancos de dados.
+
+## Interface
+
+Visual sóbrio, feito para quem usa a loja e o painel todos os dias:
+
+- Fundo cinza bem claro, superfícies brancas e bordas finas. Um único tom de destaque, o verde-pinho `#1F5C4C`, aparece nos gráficos, na seleção e no foco do teclado.
+- Fonte [Public Sans](https://github.com/uswds/public-sans), com títulos de página de 24 px, texto de 14,5 px e números tabulares em preços e totais.
+- Cantos de 4 a 8 px, botões retangulares, categorias da vitrine em abas e situações dos pedidos em etiquetas discretas.
+- Indicadores do painel numa faixa única, sem cartões de destaque.
+- Animação só em resposta a uma ação (abrir o carrinho, um modal ou um aviso). Trocar de página não tem efeito de entrada.
+
+| Cor | Uso |
+|---|---|
+| `#F6F7F7` | Fundo das páginas |
+| `#FFFFFF` | Cartões, tabelas e formulários |
+| `#E2E5E6` | Bordas e divisórias |
+| `#5F666B` | Textos de apoio |
+| `#15181B` | Texto e botões principais |
+| `#1F5C4C` | Destaque, gráficos e foco |
 
 ## Como rodar
 
@@ -176,14 +195,14 @@ A Velo roda em **H2, PostgreSQL, MySQL, MariaDB, SQL Server ou Oracle**. O guia 
 - o diagrama completo das 13 tabelas, com campos, tipos, chaves primárias, estrangeiras, únicas e índices;
 - o fluxo de situações do pedido e as regras de cada tabela.
 
-O mesmo conteúdo, com o diagrama de relacionamentos em alta resolução, está em PDF: [Banco-de-Dados-Velopdf](docs/Banco-de-Dados-Velopdf).
+O mesmo conteúdo, com o diagrama de relacionamentos em alta resolução, está em PDF: [Banco-de-Dados-Velo.pdf](docs/Banco-de-Dados-Velo.pdf).
 
 ## Documentação
 
 | Documento | Conteúdo |
 |---|---|
-| [Manual-Velopdf](Manual-Velopdf) | Manual técnico completo: visão geral, como rodar, sessão, guia de todas as telas, painel, pedidos e pagamentos, arquitetura, API, configuração, testes e solução de problemas (cópia em [docs/](docs/Manual-Velopdf)) |
-| [Banco-de-Dados-Velopdf](Banco-de-Dados-Velopdf) | Diagrama de relacionamentos, todas as tabelas com campos, tipos e chaves, convenções e como parear cada banco (cópia em [docs/](docs/Banco-de-Dados-Velopdf)) |
+| [Manual-Velo.pdf](Manual-Velo.pdf) | Manual técnico completo: visão geral, como rodar, sessão, guia de todas as telas, painel, pedidos e pagamentos, arquitetura, API, configuração, testes e solução de problemas (cópia em [docs/](docs/Manual-Velo.pdf)) |
+| [Banco-de-Dados-Velo.pdf](Banco-de-Dados-Velo.pdf) | Diagrama de relacionamentos, todas as tabelas com campos, tipos e chaves, convenções e como parear cada banco (cópia em [docs/](docs/Banco-de-Dados-Velo.pdf)) |
 | [docs/banco-de-dados.md](docs/banco-de-dados.md) | Guia do banco em texto, gerado pelo script do esquema |
 
 ## Arquitetura
@@ -263,6 +282,6 @@ Os testes cobrem os limites de sessão com relógio controlado, o fluxo de compr
 
 ## Licença
 
-[MIT](LICENSE). Use, copie, altere e distribua à vontade.
+[MIT](LICENSE). Use, copie, altere e distribua à vontade. A fonte Public Sans é distribuída sob a [SIL Open Font License](https://github.com/uswds/public-sans/blob/develop/LICENSE.md).
 
 ## **Muito Obrigado pela sua atenção!**

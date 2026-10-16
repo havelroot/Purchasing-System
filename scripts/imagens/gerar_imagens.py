@@ -2,15 +2,15 @@ from pathlib import Path
 
 DESTINO = Path(__file__).resolve().parents[2] / "frontend" / "public" / "products"
 
-PAPEL = "#E8E8E8"
-AREIA = "#D9D1CE"
-PEDRA = "#BAB7B5"
-MALVA = "#AB9D9D"
-TINTA = "#000000"
-CLARO = "#F1EFEE"
-GRAFITE = "#2B2727"
+PAPEL = "#ECEEEE"
+AREIA = "#DCE0E1"
+PEDRA = "#B9BFC2"
+MALVA = "#8C9599"
+TINTA = "#1B1F22"
+CLARO = "#F7F8F8"
+GRAFITE = "#3A4145"
 
-FUNDOS = [AREIA, PEDRA, MALVA]
+FUNDOS = [PAPEL]
 
 
 def sombra(cx=400, cy=640, rx=210, ry=26):

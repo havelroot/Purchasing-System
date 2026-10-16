@@ -48,47 +48,12 @@ export function LoginPage() {
 
   return (
     <div className="login">
-      <motion.section
-        className="login-art"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <div className="login-art-inner">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <Mark size={92} color="#f1efee" title="Velo" />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="login-art-text"
-          >
-            <Wordmark size={56} color="#f1efee" />
-            <p>Catálogo, carrinho, pedidos e pagamentos em um lugar só. Sem ruído.</p>
-          </motion.div>
-        </div>
-        <div className="login-art-foot">
-          <span className="dot" />
-          Sessão de até {maxMinutes} minutos, encerrada após {idleMinutes} minutos parado ou ao recarregar a página.
-        </div>
-      </motion.section>
-
       <section className="login-panel">
-        <motion.div
-          className="login-box"
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="login-mobile-brand">
-            <Mark size={30} />
-            <Wordmark size={26} />
-          </div>
+        <div className="login-brand">
+          <Mark size={22} title="Velo" />
+          <Wordmark size={22} />
+        </div>
+        <div className="login-box">
           <div className="segmented" role="tablist">
             <button role="tab" aria-selected={mode === "login"} onClick={() => setMode("login")}>
               Entrar
@@ -96,13 +61,10 @@ export function LoginPage() {
             <button role="tab" aria-selected={mode === "register"} onClick={() => setMode("register")}>
               Criar conta
             </button>
-            <motion.span className="segmented-thumb" layout transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }} style={{ left: mode === "login" ? 4 : "50%" }} />
+            <motion.span className="segmented-thumb" layout transition={{ duration: 0.2, ease: [0.2, 0, 0, 1] }} style={{ left: mode === "login" ? 3 : "50%" }} />
           </div>
 
-          <h1>{mode === "login" ? "Bem-vindo de volta" : "Crie sua conta"}</h1>
-          <p className="muted">
-            {mode === "login" ? "Entre com seu e-mail e senha para continuar." : "Leva menos de um minuto. Você entra logo em seguida."}
-          </p>
+          <h1>{mode === "login" ? "Entrar na sua conta" : "Criar conta"}</h1>
 
           <AnimatePresence>
             {(notice || error) && (
@@ -167,7 +129,7 @@ export function LoginPage() {
 
           {mode === "login" && (
             <div className="demo-accounts">
-              <span className="label">Contas de demonstração · senha Velo@2026</span>
+              <span className="label small">Contas de demonstração (senha Velo@2026)</span>
               {DEMO_ACCOUNTS.map((a) => (
                 <button
                   key={a.email}
@@ -179,7 +141,6 @@ export function LoginPage() {
                     setError(null);
                   }}
                 >
-                  <span className="dot" />
                   <span>
                     <strong>{a.label}</strong>
                     <span className="muted small">{a.email}</span>
@@ -189,7 +150,10 @@ export function LoginPage() {
               ))}
             </div>
           )}
-        </motion.div>
+        </div>
+        <p className="login-foot">
+          A sessão dura até {maxMinutes} minutos e termina após {idleMinutes} minutos sem uso ou ao recarregar a página.
+        </p>
       </section>
     </div>
   );

@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useCart } from "../cart/CartContext";
@@ -42,10 +41,10 @@ export function StorePage() {
   return (
     <Page className="store">
       <section className="store-hero wrap">
-        <motion.h1 initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}>
-          Coisas boas, sem excesso.
-        </motion.h1>
-        <p className="muted">Objetos para casa, trabalho e pausas. Frete grátis a partir de R$ 299.</p>
+        <h1>Produtos</h1>
+        <p className="muted">
+          {products.data ? `${products.data.total} ${products.data.total === 1 ? "item" : "itens"} · ` : ""}Frete grátis a partir de R$ 299
+        </p>
       </section>
 
       <section className="wrap store-toolbar">
@@ -64,7 +63,7 @@ export function StorePage() {
         </div>
         <div className="chips" role="group" aria-label="Categorias">
           <button className="chip" aria-pressed={!category} onClick={() => set("categoria", null)}>
-            Tudo
+            Todos
           </button>
           {categories.data?.map((c) => (
             <button key={c.id} className="chip" aria-pressed={category === c.slug} onClick={() => set("categoria", c.slug)}>
@@ -92,7 +91,7 @@ export function StorePage() {
           <div className="product-grid">
             {Array.from({ length: 8 }).map((_, i) => (
               <div key={i} className="stack" style={{ gap: 12 }}>
-                <div className="skeleton" style={{ aspectRatio: "1 / 1", borderRadius: 18 }} />
+                <div className="skeleton" style={{ aspectRatio: "1 / 1" }} />
                 <Skeleton h={14} w="70%" />
                 <Skeleton h={14} w="40%" />
               </div>
@@ -117,15 +116,9 @@ export function StorePage() {
           />
         ) : (
           <>
-            <motion.div
-              key={`${query}|${category}|${sort}|${page}|${available}`}
-              className="product-grid"
-              initial="hidden"
-              animate="show"
-              variants={{ show: { transition: { staggerChildren: 0.035 } } }}
-            >
+            <div className="product-grid">
               {products.data?.items.map((p) => <ProductTile key={p.id} p={p} />)}
-            </motion.div>
+            </div>
             {products.data && (
               <Pagination page={products.data.page} pages={products.data.pages} total={products.data.total} onPage={(p) => set("pagina", String(p))} />
             )}
@@ -140,10 +133,7 @@ function ProductTile({ p }: { p: ProductCard }) {
   const { add } = useCart();
   const out = p.stock <= 0;
   return (
-    <motion.article
-      className="product-tile"
-      variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.42, ease: [0.22, 1, 0.36, 1] } } }}
-    >
+    <article className="product-tile">
       <Link to={`/produto/${p.slug}`} className="product-tile-media">
         <ProductImage src={p.imageUrl} alt={p.name} />
         <div className="product-tile-tags">
@@ -165,6 +155,6 @@ function ProductTile({ p }: { p: ProductCard }) {
           <Icon name="plus" size={18} />
         </button>
       </div>
-    </motion.article>
+    </article>
   );
 }

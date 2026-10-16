@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "../components/Icon";
@@ -29,11 +28,7 @@ export function Progress({ order }: { order: OrderDetail }) {
         return (
           <li key={s} className={done ? "done" : ""} aria-current={i === current ? "step" : undefined}>
             <span className="progress-dot">
-              {done && (
-                <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.08 * i, type: "spring", stiffness: 400, damping: 22 }}>
-                  <Icon name="check" size={12} />
-                </motion.span>
-              )}
+              {done && <Icon name="check" size={12} />}
             </span>
             <span className="small">{flowLabel[s]}</span>
           </li>

@@ -32,15 +32,15 @@ export function DashboardPage() {
           <div className="stack">
             <div className="kpis">
               {[0, 1, 2, 3].map((i) => (
-                <Skeleton key={i} h={104} r={18} />
+                <Skeleton key={i} h={92} r={0} />
               ))}
             </div>
-            <Skeleton h={300} r={18} />
+            <Skeleton h={300} r={8} />
           </div>
         ) : (
           <div className="stack lg">
             <div className="kpis">
-              <Kpi label="Faturamento" value={money(data.kpis.revenue)} change={data.kpis.revenueChange} strong />
+              <Kpi label="Faturamento" value={money(data.kpis.revenue)} change={data.kpis.revenueChange} />
               <Kpi label="Pedidos pagos" value={String(data.kpis.orders)} />
               <Kpi label="Ticket médio" value={money(data.kpis.averageTicket)} />
               <Kpi label="Novos clientes" value={String(data.kpis.newCustomers)} />
@@ -141,13 +141,13 @@ export function DashboardPage() {
   );
 }
 
-function Kpi({ label, value, change, strong }: { label: string; value: string; change?: number | null; strong?: boolean }) {
+function Kpi({ label, value, change }: { label: string; value: string; change?: number | null }) {
   return (
-    <div className={`kpi ${strong ? "strong" : ""}`}>
+    <div className="kpi">
       <span className="kpi-label">{label}</span>
       <strong className="num">{value}</strong>
       {change !== undefined && change !== null && (
-        <span className="kpi-change small">
+        <span className={`kpi-change small ${change >= 0 ? "up" : "down"}`}>
           {change >= 0 ? "+" : "−"}
           {Math.abs(change).toFixed(1).replace(".", ",")}% sobre o período anterior
         </span>
