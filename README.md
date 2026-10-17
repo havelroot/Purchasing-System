@@ -2,7 +2,7 @@
   <img src="docs/images/logo-velo-500.png" width="220" alt="Velo">
 </p>
 
-<h1 align="center">Velo<br><sub><sup><sup><sub>Feito por Erik L. Pimenta</sub></sup></sup></sub></h1>
+<h1 align="center">Velo<br><sub><sup><sup><sub>Copyright (©) 2026 Erik Pimenta</sub></sup></sup></sub></h1>
 
 <p align="center">
   Loja virtual completa e de código aberto: catálogo, carrinho, pedidos, pagamentos e gestão de clientes e estoque em um só lugar.<br>
