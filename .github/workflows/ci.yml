@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    - cron: '27 11 * * *'  # todo dia às 08:27 (Brasília)
+  workflow_dispatch:
 
 jobs:
   frontend:
